@@ -88,6 +88,10 @@ describe('App', () => {
       wrapper
         .find('input')
         .simulate('change', { target: { value: 'my new todo' } });
+
+      wrapper
+        .find('form')
+        .simulate('submit', { preventDefault: () => {} })
     });
 
   });
