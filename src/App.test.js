@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-17-updated';
+import App, { Todo } from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// This line is necessary to run enzyme within react 17
+configure({ adapter: new Adapter() });
+
+describe('App', () => {
+
 });
