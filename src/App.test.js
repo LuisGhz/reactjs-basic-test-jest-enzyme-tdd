@@ -82,6 +82,7 @@ describe('App', () => {
 
     it('Call AddTodo when form has a value', () => {
       const addTodo = jest.fn();
+      const prevent = jest.fn();
 
       const wrapper = shallow(<TodoForm addTodo={ addTodo } />);
 
@@ -91,7 +92,7 @@ describe('App', () => {
 
       wrapper
         .find('form')
-        .simulate('submit', { preventDefault: () => {} })
+        .simulate('submit', { preventDefault: prevent })
     });
 
   });
