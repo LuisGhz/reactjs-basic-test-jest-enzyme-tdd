@@ -118,6 +118,22 @@ describe('App', () => {
       expect(props.todos[0]).toEqual({ text: 'Test text' })
     });
 
+    it('completeTodo', () => {
+      // A hook can not be tested directly. It must be inside of a component.
+      const Test = props => {
+        const hook = props.hook();
+        return <div { ...hook } ></div>
+      }
+
+      const wrapper = shallow(<Test hook={ useTodos } />);
+      // We need to call props many times because of states are inmutable.
+      let props = wrapper.find('div').props();
+      props.completeTodo(0);
+      props = wrapper.find('div').props();
+      expect(props.todos[0]).toEqual({ text: 'Todo 1', isCompleted: true })
+      expect(props.todos[0]).toHaveProperty('isCompleted', true)
+    });
+
   });
   
 });
