@@ -1,7 +1,7 @@
 // Shallow: It loads only the main component (without children components)
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-17-updated';
-import App, { Todo, TodoForm } from './App';
+import App, { Todo, TodoForm, useTodos } from './App';
 
 // This line is necessary to run enzyme within react 17
 configure({ adapter: new Adapter() });
@@ -96,6 +96,14 @@ describe('App', () => {
 
       expect(addTodo.mock.calls).toEqual([['my new todo']]);
       expect(prevent.mock.calls).toEqual([[]]);
+      
+    });
+
+  });
+
+  describe('Custom hook: useTodos', () => {
+
+    it('addTodo', () => {
       
     });
 
