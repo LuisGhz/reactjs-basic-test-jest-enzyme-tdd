@@ -12,7 +12,18 @@ describe('App', () => {
     
     it('Run completeTodo when it makes click on Complete button', () => {
 
+      // Create mock for Todo
       const completeTodo = jest.fn();
+      const removeTodo = jest.fn();
+
+      // Create basic arguments for Todo
+      const index = 5;
+      const todo = {
+        isCompleted: true,
+        text: 'Task'
+      };
+
+
 
     })
 
