@@ -1,5 +1,5 @@
 {
-  "name": "reactjs-basic-tdd",
+  "name": "reactjs-basic-test-jest-enzyme-tdd",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
