@@ -92,7 +92,11 @@ describe('App', () => {
 
       wrapper
         .find('form')
-        .simulate('submit', { preventDefault: prevent })
+        .simulate('submit', { preventDefault: prevent });
+
+      expect(addTodo.mock.calls).toEqual([['my new todo']]);
+      expect(prevent.mock.calls).toEqual([[]]);
+      
     });
 
   });
