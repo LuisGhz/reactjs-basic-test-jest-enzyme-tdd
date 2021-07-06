@@ -40,7 +40,7 @@ export const TodoForm = ({ addTodo }) => {
   );
 }
 
-const useTodos = () => {
+export const useTodos = () => {
   const [todos, setTodos] = useState([
     {
       text: "Todo 1",
