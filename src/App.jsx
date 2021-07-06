@@ -40,7 +40,7 @@ export const TodoForm = ({ addTodo }) => {
   );
 }
 
-const App = () => {
+const useTodos = () => {
   const [todos, setTodos] = useState([
     {
       text: "Todo 1",
@@ -72,6 +72,12 @@ const App = () => {
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
+
+  return { todos, addTodo, completeTodo, removeTodo }
+}
+
+const App = () => {
+  const { todos, addTodo, completeTodo, removeTodo } = useTodos();
 
   return (
     <div className="app">
