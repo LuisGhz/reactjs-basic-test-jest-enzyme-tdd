@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 
-const Todo = ({ todo, index, completeTodo, removeTodo }) => {
+export const Todo = ({ todo, index, completeTodo, removeTodo }) => {
   return (
     <div
       className="todo"
@@ -18,7 +18,7 @@ const Todo = ({ todo, index, completeTodo, removeTodo }) => {
   );
 }
 
-const TodoForm = ({ addTodo }) => {
+export const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState("");
 
   const handleSubmit = e => {
