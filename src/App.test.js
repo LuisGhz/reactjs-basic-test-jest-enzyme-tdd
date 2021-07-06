@@ -1,3 +1,4 @@
+// Shallow: It loads only the main component (without children components)
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-17-updated';
 import App, { Todo } from './App';
