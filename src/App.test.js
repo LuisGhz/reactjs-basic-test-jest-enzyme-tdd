@@ -23,7 +23,14 @@ describe('App', () => {
         text: 'Task'
       };
 
-
+      const wrapper = shallow(
+        <Todo 
+          completeTodo={ completeTodo }
+          removeTodo={ removeTodo }
+          index={ index }
+          todo={ todo }
+        />
+      );
 
     })
 
