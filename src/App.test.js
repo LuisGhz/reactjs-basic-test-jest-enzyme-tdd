@@ -38,7 +38,8 @@ describe('App', () => {
         .at(0)
         .simulate('click');
 
-      expect(completeTodo.mock.calls).toEqual([[5]])
+      expect(completeTodo.mock.calls).toEqual([[5]]);
+      expect(removeTodo.mock.calls).toEqual([]);
 
     })
 
@@ -70,7 +71,8 @@ describe('App', () => {
         .at(1)
         .simulate('click');
 
-      expect(removeTodo.mock.calls).toEqual([[5]])
+      expect(removeTodo.mock.calls).toEqual([[5]]);
+      expect(completeTodo.mock.calls).toEqual([]);
 
     })
 
