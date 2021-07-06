@@ -87,7 +87,7 @@ describe('App', () => {
 
       wrapper
         .find('input')
-        .simulate('change', { target: { value: '' } });
+        .simulate('change', { target: { value: 'my new todo' } });
     });
 
   });
