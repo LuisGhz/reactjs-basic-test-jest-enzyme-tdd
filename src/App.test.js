@@ -42,6 +42,38 @@ describe('App', () => {
 
     })
 
+    it('Run removeTodo when it makes click on Remove button', () => {
+
+      // Create mock for Todo
+      // The mock returns an array with n arrays depending how many times it was called, each array contains the arguments of each call
+      const completeTodo = jest.fn();
+      const removeTodo = jest.fn();
+
+      // Create basic arguments for Todo
+      const index = 5;
+      const todo = {
+        isCompleted: true,
+        text: 'Task'
+      };
+
+      const wrapper = shallow(
+        <Todo 
+          completeTodo={ completeTodo }
+          removeTodo={ removeTodo }
+          index={ index }
+          todo={ todo }
+        />
+      );
+
+      wrapper
+        .find('button')
+        .at(1)
+        .simulate('click');
+
+      expect(removeTodo.mock.calls).toEqual([[5]])
+
+    })
+
   });
   
 });
