@@ -13,6 +13,7 @@ describe('App', () => {
     it('Run completeTodo when it makes click on Complete button', () => {
 
       // Create mock for Todo
+      // The mock returns an array with n arrays depending how many times it was called, each array contains the arguments of each call
       const completeTodo = jest.fn();
       const removeTodo = jest.fn();
 
@@ -31,6 +32,13 @@ describe('App', () => {
           todo={ todo }
         />
       );
+
+      wrapper
+        .find('button')
+        .at(0)
+        .simulate('click');
+
+      expect(completeTodo.mock.calls).toEqual([[5]])
 
     })
 
