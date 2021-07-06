@@ -104,7 +104,18 @@ describe('App', () => {
   describe('Custom hook: useTodos', () => {
 
     it('addTodo', () => {
-      
+      // A hook can not be tested directly. It must be inside of a component.
+      const Test = props => {
+        const hook = props.hook();
+        return <div { ...hook } ></div>
+      }
+
+      const wrapper = shallow(<Test hook={ useTodos } />);
+      // We need to call props many times because of states are inmutable.
+      let props = wrapper.find('div').props();
+      props.addTodo('Test text');
+      props = wrapper.find('div').props();
+      expect(props.todos[0]).toEqual({ text: 'Test text' })
     });
 
   });
