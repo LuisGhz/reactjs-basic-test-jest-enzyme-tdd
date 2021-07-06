@@ -9,6 +9,12 @@ configure({ adapter: new Adapter() });
 describe('App', () => {
 
   describe('Todo', () => {
+    
+    it('Run completeTodo when it makes click on Complete button', () => {
+
+      const completeTodo = jest.fn();
+
+    })
 
   });
   
