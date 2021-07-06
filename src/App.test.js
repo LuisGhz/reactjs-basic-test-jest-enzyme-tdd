@@ -1,4 +1,5 @@
 // Shallow: It loads only the main component (without children components)
+// Mount: Similar to shallow but with mount I can access to children components
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-17-updated';
 import App, { Todo, TodoForm, useTodos } from './App';
