@@ -1,6 +1,6 @@
 // Shallow: It loads only the main component (without children components)
 // Mount: Similar to shallow but with mount I can access to children components
-import { shallow, configure } from 'enzyme';
+import { shallow, mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-17-updated';
 import App, { Todo, TodoForm, useTodos } from './App';
 
@@ -152,5 +152,32 @@ describe('App', () => {
     });
 
   });
+
+  describe('App integration', () => {
+
+    it('App', () => {
+      const wrapper = mount(<App />);
+      const prevent = jest.fn();
   
+      wrapper
+        .find('input')
+        .simulate('change', { target: { value: 'Other todo' } });
+  
+      wrapper
+        .find('form')
+        .simulate('submit', { preventDefault: prevent });
+  
+      const isTodo = wrapper
+        .find('.todo')
+        .at(0)
+        .text()
+        .includes('Other todo');
+  
+      expect(isTodo).toEqual(true);
+      expect(prevent).toHaveBeenCalledTimes(1);
+    });
+
+  });
+  
+
 });
